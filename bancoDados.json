@@ -1,0 +1,60 @@
+{
+    "dados": [
+      {
+        "nome": "Gato",
+        "tipo": "cachorro",
+        "idade": 3,
+        "raca": "husky",
+        "peso": 7,
+        "tutor": "Steve",
+        "contato": "(81) 91414-1414",
+        "vacinado": true,
+        "servicos": [
+          {
+            "nome" : "vacina",  
+            "data" : "21/03/2021"
+          },
+          {
+            "nome" : "banho", 
+            "data" : "29-03-2021"
+          }
+        ]
+      },
+      {
+        "nome": "Cachorro",
+        "tipo": "passaro",
+        "idade": 4,
+        "raca": "calopsita",
+        "peso": 0.1,
+        "tutor": "Bill",
+        "contato": "(81) 98282-8383",
+        "vacinado": false,
+        "servicos": [
+          {
+            "nome" : "banho", 
+            "data" : "16/03/2021"
+          }
+        ]
+      },
+      {
+        "nome": "Passaro",
+        "tipo": "gato",
+        "idade": 2,
+        "raca": "persa",
+        "peso": 3.5,
+        "tutor": "Francis",
+        "contato": "(81) 99988-7766",
+        "vacinado": false,
+        "servicos": [
+          {
+            "nome" : "tosa",
+            "data" : "18/03/2021"
+          },
+          {
+            "nome" : "banho",
+            "data" : "18/03/2021"
+          }
+        ]
+      }
+    ]
+  }
