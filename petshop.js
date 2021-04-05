@@ -12,13 +12,25 @@ const petshop = {
         fs.writeFileSync(fileName, JSON.stringify(file, null, 2), 'utf-8');
     },
     listarPets: () => {
+        let textoListaPets = "PETSHOP \n";
+
         file.dados.forEach((pet) =>{
-            console.log(`${pet.nome}, ${pet.idade} anos, ${pet.tipo}, ${pet.raca}, ${(pet.vacinado) ? 'vacinado': 'não vacinado'}`);
+            textoListaPets += (`${pet.nome}, ${pet.idade} anos, ${pet.tipo}, ${pet.raca}, ${(pet.vacinado) ? 'vacinado': 'não vacinado'}\n`);
     
             pet.servicos.forEach((servico) => {
-                console.log(`${servico.nome} ${servico.data}`);
+                textoListaPets += (`${servico.nome} ${servico.data}\n`);
             })
         })
+
+        return textoListaPets;
+    },
+    buscarPet: (nomePet) => {
+
+        let petEncontrado = file.dados.find((pet) => {
+            return pet.nome == nomePet;
+        });
+    
+        return petEncontrado ? petEncontrado : `Nenhum pet encontrado com nome ${nomePet}`;
     },
     vacinarPet: pet => {
         if(!pet.vacinado){
@@ -37,20 +49,8 @@ const petshop = {
         })
         console.log(`${cont} pets foram vaciados nessa campanha!`);
     },
-    novocliente: () => {
-        let novo = {
-            nome: 'Peixe',
-            tipo: 'cavalo',
-            idade: 5,
-            raca: 'arabe',
-            peso: 500,
-            tutor: 'Silva',
-            contato: '(81) 99876-9876',
-            vacinado: false,
-            servicos: []
-        }
-        file.dados.push(...novo);
-        atualizarBanco();
+    novocliente: (novo) => {
+        file.dados.push(novo);
     },    
     darBanhoPet: pet => {
         pet.servicos.push({
@@ -102,7 +102,7 @@ const petshop = {
         }else{
             console.log("Ainda não!")
         }
-    }
+    },
 }
 
 module.exports = petshop;
